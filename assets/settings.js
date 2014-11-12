@@ -21,7 +21,7 @@ var MEME_SETTINGS = {
   ],
 
   headlineText: 'Write your own headline', // Default headline text.
-  height: 378, // Canvas rendering height.
+  height: 262, // Canvas rendering height.
   imageScale: 1, // Background image scale.
   imageSrc: '', // Default background image path. MUST reside on host domain, or use base64 data.
   overlayAlpha: 0.5, // Opacity of image overlay.
@@ -58,5 +58,5 @@ var MEME_SETTINGS = {
     {text: 'The Verge', value: '/images/theverge.png', data: ''}
   ],
 
-  width: 755 // Canvas rendering width.
+  width: 528 // Canvas rendering width.
 };
