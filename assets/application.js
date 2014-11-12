@@ -13599,6 +13599,19 @@ MEME.MemeCanvasView = Backbone.View.extend({
       ctx.fillText(d.creditText, padding, d.height - padding);
     }
 
+    function renderTrapezoid(ctx) {
+      ctx.beginPath();
+      ctx.moveTo(360, 0);
+      ctx.lineTo(528, 0);
+      ctx.lineTo(528, 262);
+      ctx.lineTo(400, 262);
+      ctx.lineTo(360, 0);
+      ctx.closePath();
+      ctx.fillStyle = "rgba(252,252,252,.8);";
+      ctx.fill();
+    }
+
+
     function renderWatermark(ctx) {
       // Base & transformed height and width:
       var bw, bh, tw, th;
@@ -13625,6 +13638,7 @@ MEME.MemeCanvasView = Backbone.View.extend({
     renderOverlay(ctx);
     renderHeadline(ctx);
     renderCredit(ctx);
+    renderTrapezoid(ctx);
     renderWatermark(ctx);
 
     var data = this.canvas.toDataURL(); //.replace('image/png', 'image/octet-stream');

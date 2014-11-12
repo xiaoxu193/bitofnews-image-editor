@@ -12,10 +12,10 @@ var MEME_SETTINGS = {
   fontFamilyOpts: ['Arial', 'Helvetica Neue', 'Comic Sans MS'],
   
   // Font size of main headline:
-  fontSize: 24,
+  fontSize: 16,
   // Font size options: set to empty array to disable font-size selector.
   fontSizeOpts: [
-    {text: 'Small text', value: 14},
+    {text: 'Small text', value: 16},
     {text: 'Medium text', value: 24},
     {text: 'Large text', value: 36}
   ],
@@ -30,7 +30,7 @@ var MEME_SETTINGS = {
   overlayColor: '#000',
   // Overlay color options: set to empty array to disable overlay options selector.
   overlayColorOpts: ['#000', '#777', '#2980b9', '#FF5C5C'],
-  paddingRatio: 0.05, // Percentage of canvas width to use as edge padding.
+  paddingRatio: 0.04, // Percentage of canvas width to use as edge padding.
   
   // Text alignment: valid settings are "left", "center", and "right".
   textAlign: 'left',
