@@ -3,6 +3,7 @@ var MEME_SETTINGS = {
   creditSize: 12, // Font size for credit text.
   downloadName: 'share', // The name of the downloaded image file (will have a ".png" extension added).
   fontColor: 'white', // Universal font color.
+  sideColor: 'black', // Color for sideline text.
 
   // Universal font family for texts:
   // Note that you'll need to included quoted font names as you would in CSS, ie: '"Knockout 28 B"'.
@@ -20,7 +21,8 @@ var MEME_SETTINGS = {
     {text: 'Large text', value: 36}
   ],
 
-  headlineText: 'Write your own headline', // Default headline text.
+  headlineText: 'November 12', // Default headline text.
+  sidelineText: 'Write your own sideline', // Default sideline text.
   height: 262, // Canvas rendering height.
   imageScale: 1, // Background image scale.
   imageSrc: '', // Default background image path. MUST reside on host domain, or use base64 data.

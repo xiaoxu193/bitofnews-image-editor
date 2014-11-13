@@ -13375,11 +13375,13 @@ MEME.MemeModel = Backbone.Model.extend({
     creditSize: 12,
     downloadName: 'share',
     fontColor: 'white',
+    sideColor: 'black',
     fontFamily: 'Helvetica Neue',
     fontFamilyOpts: ['Helvetica', 'Helvetica Neue', 'Comic Sans MS'],
     fontSize: 24,
     fontSizeOpts: [14, 24, 36],
     headlineText: 'Write your own headline',
+    sidelineText: 'Write your own sideline',
     height: 262,
     imageScale: 1,
     imageSrc: '',
@@ -13591,6 +13593,14 @@ MEME.MemeCanvasView = Backbone.View.extend({
       ctx.shadowColor = 'transparent';
     }
 
+    function renderSideline(ctx) {
+      ctx.textBaseline = 'bottom';
+      ctx.textAlign = 'right';
+      ctx.fillStyle = d.sideColor;
+      ctx.font = 'normal '+ d.creditSize +'pt '+ d.fontFamily;
+      ctx.fillText(d.sidelineText, d.width - padding, padding);
+    }
+
     function renderCredit(ctx) {
       ctx.textBaseline = 'bottom';
       ctx.textAlign = 'left';
@@ -13607,7 +13617,7 @@ MEME.MemeCanvasView = Backbone.View.extend({
       ctx.lineTo(400, 262);
       ctx.lineTo(360, 0);
       ctx.closePath();
-      ctx.fillStyle = "rgba(252,252,252,.8);";
+      ctx.fillStyle = "rgba(252,252,252,.95);";
       ctx.fill();
     }
 
@@ -13636,9 +13646,10 @@ MEME.MemeCanvasView = Backbone.View.extend({
 
     renderBackground(ctx);
     renderOverlay(ctx);
-    renderHeadline(ctx);
-    renderCredit(ctx);
     renderTrapezoid(ctx);
+    renderHeadline(ctx);
+    renderSideline(ctx);
+    renderCredit(ctx);
     renderWatermark(ctx);
 
     var data = this.canvas.toDataURL(); //.replace('image/png', 'image/octet-stream');
@@ -13751,6 +13762,7 @@ MEME.MemeEditorView = Backbone.View.extend({
   render: function() {
     var d = this.model.toJSON();
     this.$('#headline').val(d.headlineText);
+    this.$('#sideline').val(d.sidelineText);
     this.$('#credit').val(d.creditText);
     this.$('#watermark').val(d.watermarkSrc);
     this.$('#image-scale').val(d.imageScale);
@@ -13763,6 +13775,7 @@ MEME.MemeEditorView = Backbone.View.extend({
 
   events: {
     'input #headline': 'onHeadline',
+    'input #sideline': 'onSideline',
     'input #credit': 'onCredit',
     'input #image-scale': 'onScale',
     'change #font-size': 'onFontSize',
@@ -13782,6 +13795,10 @@ MEME.MemeEditorView = Backbone.View.extend({
 
   onHeadline: function() {
     this.model.set('headlineText', this.$('#headline').val());
+  },
+
+  onSideline: function() {
+    this.model.set('sidelineText', this.$('#sideline').val());
   },
 
   onTextAlign: function() {
