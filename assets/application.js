@@ -13594,11 +13594,36 @@ MEME.MemeCanvasView = Backbone.View.extend({
     }
 
     function renderSideline(ctx) {
-      ctx.textBaseline = 'bottom';
-      ctx.textAlign = 'right';
-      ctx.fillStyle = d.sideColor;
+      var maxWidth = 150; // max width of text box
+      var x = d.width - maxWidth;
+      var y =45;
+
       ctx.font = 'normal '+ d.creditSize +'pt '+ d.fontFamily;
-      ctx.fillText(d.sidelineText, d.width - padding, 50);
+      ctx.fillStyle = d.sideColor;
+      ctx.textBaseline = 'bottom';
+      ctx.textAlign = 'left';
+
+      var words = d.sidelineText.split(' ');
+      var line = '';
+
+      for (var n = 0; n < words.length; n++) {
+        var testLine = line + words[n] + ' ';
+        var metrics = ctx.measureText(testLine);
+        var testWidth = metrics.width;
+
+        if (testWidth > maxWidth && n > 0) {
+          ctx.fillText(line, x, y);
+          line = words[n] + ' ';
+          y += Math.round(d.creditSize * 1.75); // 1.5 is lineheight
+          maxWidth -= 3;
+          x += 3;
+        } else {
+          line = testLine;
+        }
+      }
+
+      ctx.fillText(line, x, y);
+
     }
 
     function renderCredit(ctx) {

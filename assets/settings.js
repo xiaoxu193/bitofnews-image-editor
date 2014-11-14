@@ -22,7 +22,7 @@ var MEME_SETTINGS = {
   ],
 
   headlineText: 'November 12', // Default headline text.
-  sidelineText: 'Own sideline', // Default sideline text.
+  sidelineText: 'Enter a caption for the news image here. It will automatically slant the caption for optical viewing.', // Default sideline text.
   height: 262, // Canvas rendering height.
   imageScale: 1, // Background image scale.
   imageSrc: '', // Default background image path. MUST reside on host domain, or use base64 data.
