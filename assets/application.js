@@ -13386,6 +13386,8 @@ MEME.MemeModel = Backbone.Model.extend({
     imageScale: 1,
     imageSrc: '',
     overlayAlpha: 0.5,
+    filter: '',
+    filterOpts: ['lomo', 'vintage', 'love'],
     overlayColor: '#000',
     overlayColorOpts: ['#000', '#777', '#2980b9'],
     paddingRatio: 0.05,
@@ -13598,7 +13600,7 @@ MEME.MemeCanvasView = Backbone.View.extend({
       var x = d.width - maxWidth;
       var y =45;
 
-      ctx.font = 'normal '+ d.creditSize +'pt '+ d.fontFamily;
+      ctx.font = 'normal '+ d.fontSize +'pt '+ d.fontFamily;
       ctx.fillStyle = d.sideColor;
       ctx.textBaseline = 'bottom';
       ctx.textAlign = 'left';

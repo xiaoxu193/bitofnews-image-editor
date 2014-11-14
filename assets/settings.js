@@ -13,10 +13,10 @@ var MEME_SETTINGS = {
   fontFamilyOpts: ['Arial', 'Helvetica Neue', 'Comic Sans MS'],
   
   // Font size of main headline:
-  fontSize: 16,
+  fontSize: 12,
   // Font size options: set to empty array to disable font-size selector.
   fontSizeOpts: [
-    {text: 'Small text', value: 16},
+    {text: 'Small text', value: 12},
     {text: 'Medium text', value: 24},
     {text: 'Large text', value: 36}
   ],
@@ -27,6 +27,10 @@ var MEME_SETTINGS = {
   imageScale: 1, // Background image scale.
   imageSrc: '', // Default background image path. MUST reside on host domain, or use base64 data.
   overlayAlpha: 0.5, // Opacity of image overlay.
+
+  // Filter options
+  filter: '',
+  filterOpts: ['lomo', 'vintage', 'love'],
 
   // Image overlay color, or blank ('') for no overlay:
   overlayColor: '#000',
@@ -43,7 +47,7 @@ var MEME_SETTINGS = {
     {text: 'Align right', value: 'right'}
   ],
 
-  textShadow: false, // Text shadow toggle.
+  textShadow: true, // Text shadow toggle.
   textShadowEdit: true, // Toggles text shadow control within the editor.
   watermarkAlpha: 1, // Opacity of watermark image.
   watermarkMaxWidthRatio: 0.25, // Maximum allowed width of watermark (percentage of total canvas width).
