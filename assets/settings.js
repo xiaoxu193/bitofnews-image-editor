@@ -1,5 +1,5 @@
 var MEME_SETTINGS = {
-  creditText: 'Source:', // Default "credits" text.
+  creditText: '', // Default "credits" text.
   creditSize: 12, // Font size for credit text.
   downloadName: 'share', // The name of the downloaded image file (will have a ".png" extension added).
   fontColor: 'white', // Universal font color.
@@ -22,7 +22,7 @@ var MEME_SETTINGS = {
   ],
 
   headlineText: 'November 12', // Default headline text.
-  sidelineText: 'Write your own sideline', // Default sideline text.
+  sidelineText: 'Own sideline', // Default sideline text.
   height: 262, // Canvas rendering height.
   imageScale: 1, // Background image scale.
   imageSrc: '', // Default background image path. MUST reside on host domain, or use base64 data.

@@ -13371,7 +13371,7 @@ MEME.$(function() {
 MEME.MemeModel = Backbone.Model.extend({
   defaults: {
     backgroundPosition: { x: null, y: null },
-    creditText: 'Source:',
+    creditText: '',
     creditSize: 12,
     downloadName: 'share',
     fontColor: 'white',
@@ -13541,7 +13541,7 @@ MEME.MemeCanvasView = Backbone.View.extend({
     }
 
     function renderHeadline(ctx) {
-      var maxWidth = Math.round(d.width * 0.75);
+      var maxWidth = Math.round(d.width * 0.6);
       var x = padding;
       var y = padding;
 
@@ -13598,7 +13598,7 @@ MEME.MemeCanvasView = Backbone.View.extend({
       ctx.textAlign = 'right';
       ctx.fillStyle = d.sideColor;
       ctx.font = 'normal '+ d.creditSize +'pt '+ d.fontFamily;
-      ctx.fillText(d.sidelineText, d.width - padding, padding);
+      ctx.fillText(d.sidelineText, d.width - padding, 50);
     }
 
     function renderCredit(ctx) {
@@ -13701,6 +13701,7 @@ MEME.MemeCanvasView = Backbone.View.extend({
       });
   }
 });
+
 /*
 * MemeEditorView
 * Manages form capture, model updates, and selection state of the editor form.
