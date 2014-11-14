@@ -13596,9 +13596,9 @@ MEME.MemeCanvasView = Backbone.View.extend({
     }
 
     function renderSideline(ctx) {
-      var maxWidth = 150; // max width of text box
-      var x = d.width - maxWidth;
-      var y =45;
+      var maxWidth = 140; // max width of text box
+      var x = d.width - 145;
+      var y =50;
 
       ctx.font = 'normal '+ d.fontSize +'pt '+ d.fontFamily;
       ctx.fillStyle = d.sideColor;
