@@ -13644,7 +13644,7 @@ MEME.MemeCanvasView = Backbone.View.extend({
       ctx.lineTo(400, 262);
       ctx.lineTo(360, 0);
       ctx.closePath();
-      ctx.fillStyle = "rgba(252,252,252,.95);";
+      ctx.fillStyle = "rgba(252,252,252,1);";
       ctx.fill();
     }
 
