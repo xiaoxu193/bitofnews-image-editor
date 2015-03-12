@@ -13371,11 +13371,11 @@ MEME.$(function() {
 MEME.MemeModel = Backbone.Model.extend({
   defaults: {
     backgroundPosition: { x: null, y: null },
-    creditText: 'Source:',
-    creditSize: 12,
+    creditText: 'Yik Yak',
+    creditSize: 18,
     downloadName: 'share',
     fontColor: 'white',
-    fontFamily: 'Helvetica Neue',
+    fontFamily: 'Helvetica Neue Light',
     fontFamilyOpts: ['Helvetica', 'Helvetica Neue', 'Comic Sans MS'],
     fontSize: 24,
     fontSizeOpts: [14, 24, 36],
@@ -13395,7 +13395,7 @@ MEME.MemeModel = Backbone.Model.extend({
     watermarkMaxWidthRatio: 0.25,
     watermarkSrc: '',
     watermarkOpts: [],
-    width: 528
+    width: 1024
   },
 
   // Initialize with custom image members used for background and watermark:
@@ -13539,7 +13539,7 @@ MEME.MemeCanvasView = Backbone.View.extend({
     }
 
     function renderHeadline(ctx) {
-      var maxWidth = Math.round(d.width * 0.75);
+      var maxWidth = Math.round(d.width * 0.90);
       var x = padding;
       var y = padding;
 
@@ -13559,8 +13559,8 @@ MEME.MemeCanvasView = Backbone.View.extend({
       if (d.textAlign == 'center') {
         ctx.textAlign = 'center';
         x = d.width / 2;
-        y = d.height - d.height / 1.5;
-        maxWidth = d.width - d.width / 3;
+        y = d.height - d.height / 1.5 - 50;
+        //maxWidth = d.width - d.width / 3;
 
       } else if (d.textAlign == 'right' ) {
         ctx.textAlign = 'right';
@@ -13586,17 +13586,17 @@ MEME.MemeCanvasView = Backbone.View.extend({
           line = testLine;
         }
       }
-
+      ctx.globalAlpha = 0.9;
       ctx.fillText(line, x, y);
       ctx.shadowColor = 'transparent';
     }
 
     function renderCredit(ctx) {
       ctx.textBaseline = 'bottom';
-      ctx.textAlign = 'left';
+      ctx.textAlign = 'right';
       ctx.fillStyle = d.fontColor;
       ctx.font = 'normal '+ d.creditSize +'pt '+ d.fontFamily;
-      ctx.fillText(d.creditText, padding, d.height - padding);
+      ctx.fillText(d.creditText, d.width - 45, 80);
     }
 
     function renderWatermark(ctx) {
@@ -13796,7 +13796,7 @@ MEME.MemeEditorView = Backbone.View.extend({
   },
 
   onOverlayColor: function(evt) {
-    this.model.set('overlayColor', this.$(evt.target).val());
+    this.model.set('imageSrc', this.$(evt.target).val());
   },
 
   getDataTransfer: function(evt) {
