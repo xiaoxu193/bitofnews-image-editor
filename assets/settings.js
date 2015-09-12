@@ -21,7 +21,7 @@ var MEME_SETTINGS = {
     {text: 'Large text', value: 36}
   ],
 
-  headlineText: 'November 12', // Default headline text.
+  headlineText: new Date().toLocaleDateString('en-US', {month: 'long',day: 'numeric'}).replace(/\./g, '/'), // Default headline text.
   sidelineText: 'Enter a caption for the news image here. It will automatically slant the caption for optical viewing.', // Default sideline text.
   height: 262, // Canvas rendering height.
   imageScale: 1, // Background image scale.
